@@ -1,0 +1,131 @@
+/* Fondo y estructura principal */
+.home-container {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Títulos de sección */
+.section-title {
+  color: #74640a;
+  border-bottom: 2px solid #74640a;
+  text-shadow: 0 0 5px #000000, 0 0 10px #ffffff;
+  padding-bottom: 0.5rem;
+  margin: 2rem 0 1rem;
+  font-family: 'Pathway Gothic One', sans-serif;
+  font-size: 2.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Contenedores del carrusel (reemplazan a .card-scroll) */
+.card-carousel {
+  overflow-x: hidden; /* Ocultamos la barra de scroll */
+  white-space: nowrap;
+  position: relative;
+  padding: 2rem 0;
+  margin: 0 -2rem; /* Compensa el padding del container */
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+
+/* Pista del carrusel (contiene las cards) */
+.card-track {
+  display: inline-flex;
+  gap: 2rem;
+  padding: 0 2rem;
+  animation: scroll 150s linear infinite;
+}
+
+/* Cards individuales */
+.card {
+  min-width: 300px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 1px solid #b1a008f8;
+  color: white;
+  transition: transform 0.1s ease;
+  flex-shrink: 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.card:hover {
+  transform: scale(1.05) translateY(-10px);
+  border-color: #FFE81F;
+  box-shadow: 0 8px 16px rgba(255, 232, 31, 0.3);
+  z-index: 10;
+}
+
+/* Imágenes de las cards */
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid #b1a008f8;
+}
+
+/* Botones */
+.card-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.heart-btn {
+  font-size: 1.2rem;
+  color: #ccc;
+  transition: all 0.3s;
+}
+
+.heart-btn:hover {
+  color: red;
+  transform: scale(1.2);
+}
+
+/* Animación del carrusel */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Efectos de borde para el carrusel */
+.card-carousel::before,
+.card-carousel::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.card-carousel::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.9), transparent);
+}
+
+.card-carousel::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.9), transparent);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card {
+    min-width: 250px;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+}

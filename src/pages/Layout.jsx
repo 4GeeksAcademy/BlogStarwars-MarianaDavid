@@ -1,15 +1,21 @@
-import { Outlet } from "react-router-dom/dist"
-import ScrollToTop from "../components/ScrollToTop"
-import { Navbar } from "../components/Navbar"
-import { Footer } from "../components/Footer"
+import { Outlet } from "react-router-dom";
+import ScrollToTop from "../components/ScrollToTop";
+import { Navbar } from "../components/Navbar";
+import { Footer } from "../components/Footer";
+import { StarsBackground } from "../components/StarsBackground";
+import { FavoritesProvider } from "../context/FavoritesContext"; // Importa el Provider
 
-// Base component that maintains the navbar and footer throughout the page and the scroll to top functionality.
 export const Layout = () => {
     return (
-        <ScrollToTop>
-            <Navbar />
-                <Outlet />
-            <Footer />
-        </ScrollToTop>
-    )
-}
+        <FavoritesProvider> {/* Envuelve todo con el provider de favoritos */}
+            <ScrollToTop>
+                <StarsBackground />
+                <Navbar />
+                <main className="main-content"> {/* Contenedor semántico para el contenido */}
+                    <Outlet />
+                </main>
+                <Footer />
+            </ScrollToTop>
+        </FavoritesProvider>
+    );
+};

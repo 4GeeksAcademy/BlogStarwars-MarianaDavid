@@ -1,0 +1,59 @@
+.starwars-logo {
+  font-family: 'Pathway Gothic One', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #FFE81F;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  text-shadow: 
+    0 0 5px #000,
+    0 0 10px #FFE81F,
+    0 0 20px #FFE81F;
+  margin: 0;
+  transform: perspective(300px) rotateX(15deg);
+}
+
+/* Navbar.css */
+.dropdown-menu {
+  transition: all 0.3s ease;
+}
+
+.dropdown-menu.show {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+}
+
+/* Estilo para el botón de favoritos */
+.btn-outline-warning {
+  border-color: #FFE81F;
+  color: #FFE81F;
+}
+
+.btn-outline-warning:hover {
+  background-color: #FFE81F;
+  color: #000;
+}
+
+
+/* Scrollbar para la lista de favoritos */
+.dropdown-menu::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb {
+  background-color: #FFE81F;
+  border-radius: 4px;
+}
+.dropdown {
+  position: relative;
+  z-index: 1000; /* Asegúrate que esté por encima de otros elementos */
+}
